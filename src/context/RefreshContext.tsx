@@ -4,8 +4,6 @@ const INTERVAL = 1000;
 
 const RefreshContext = React.createContext({ tick: 0 });
 
-// This context maintain 2 counters that can be used as a dependencies on other hooks to force a periodic refresh
-
 const RefreshContextProvider = ({
   children,
 }: {

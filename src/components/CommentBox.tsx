@@ -1,8 +1,7 @@
-import React, { useEffect, useMemo } from "react";
-import { Comment } from "../model/interface";
+import React from "react";
 import styled from "styled-components";
 import { COMMENT_DELETE_DURATION } from "../config/const";
-import useRefresh from "../hooks/useRefresh";
+import { Comment } from "../model/interface";
 
 type Props = {
   comment: Comment;
