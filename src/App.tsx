@@ -1,24 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { createGlobalStyle } from "styled-components";
+import reset from "styled-reset";
+import Main from "./page/Main";
+
+const GlobalStyle = createGlobalStyle`
+  ${reset}
+
+
+  * {
+    outline: none;
+    box-sizing: border-box;
+  }
+
+  font-family: 'Roboto', sans-serif;
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Main />
+      <GlobalStyle />
     </div>
   );
 }
