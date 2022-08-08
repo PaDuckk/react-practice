@@ -18,6 +18,10 @@ const Main = (props: Props) => {
     setComments([...comments, comment]);
   };
 
+  const handleDelete = (createdAt: number) => {
+    setComments((prev) => prev.filter((c) => c.createdAt !== createdAt));
+  };
+
   useEffect(() => {
     const cachedUserName = localStorage.getItem(USER_NAME);
 
@@ -57,6 +61,7 @@ const Main = (props: Props) => {
                 key={i}
                 comment={comment}
                 isOwned={comment.userName === userName}
+                onDeleteClick={handleDelete}
               />
             );
           })

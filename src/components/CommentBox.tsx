@@ -5,9 +5,10 @@ import { Comment } from "../model/interface";
 type Props = {
   comment: Comment;
   isOwned: boolean;
+  onDeleteClick: (createdAt: number) => void;
 };
 
-const CommentBox = ({ comment, isOwned }: Props) => {
+const CommentBox = ({ comment, isOwned, onDeleteClick }: Props) => {
   const date = new Date(comment.createdAt);
   const expiredAt = new Date(comment.createdAt + COMMENT_DELETE_DURATION);
   const countdown = parseInt("" + (+expiredAt - Date.now()) / 1000);
@@ -16,7 +17,14 @@ const CommentBox = ({ comment, isOwned }: Props) => {
     <Wrapper>
       <div className="top">
         <div className="user">{comment.userName}</div>
-        {isOwned && <div className="delete">❌</div>}
+        {isOwned && (
+          <div
+            className="delete"
+            onClick={() => onDeleteClick(comment.createdAt)}
+          >
+            ❌
+          </div>
+        )}
       </div>
       <div className="text">{comment.text}</div>
       <div className="bottom">
